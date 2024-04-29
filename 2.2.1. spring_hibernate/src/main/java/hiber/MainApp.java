@@ -3,7 +3,6 @@ package hiber;
 import hiber.config.AppConfig;
 import hiber.model.Car;
 import hiber.model.User;
-import hiber.service.CarService;
 import hiber.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -17,7 +16,6 @@ public class MainApp {
 
       UserService userService = context.getBean(UserService.class);
 
-      CarService carService = context.getBean(CarService.class);
 
       System.out.println("[Creating 2 users]");
       User user1 = new User("Ivan", "Ivanov", "ivan@mail.ru");
