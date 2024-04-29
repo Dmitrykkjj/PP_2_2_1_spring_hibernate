@@ -19,6 +19,9 @@ public class User {
    @Column(name = "email")
    private String email;
 
+   @OneToOne(mappedBy = "user")
+   private Car car;
+
    public User() {}
    
    public User(String firstName, String lastName, String email) {
@@ -57,5 +60,29 @@ public class User {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+   public Car getCar() {
+      return car;
+   }
+
+   public void setCar(Car car) {
+      this.car = car;
+   }
+
+   @Override
+   public String toString() {
+      StringBuilder sb = new StringBuilder();
+      sb.append("User ID: ").append(id).append("\n");
+      sb.append("First Name: ").append(firstName).append("\n");
+      sb.append("Last Name: ").append(lastName).append("\n");
+      sb.append("Email: ").append(email).append("\n");
+      if (car != null) {
+         sb.append("Car Model: ").append(car.getModel()).append("\n");
+         sb.append("Car Series: ").append(car.getSeries()).append("\n");
+      } else {
+         sb.append("Car: None\n");
+      }
+      return sb.toString();
    }
 }
