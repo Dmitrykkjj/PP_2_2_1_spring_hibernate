@@ -16,8 +16,7 @@ public class Car {
     @Column(name = "series")
     private int series;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne(mappedBy = "car")
     private User user;
 
     public Car() {
@@ -52,11 +51,14 @@ public class Car {
         this.series = series;
     }
 
-    public User getUser() {
-        return user;
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Car ID: ").append(id).append("\n");
+        sb.append("Model: ").append(model).append("\n");
+        sb.append("Series: ").append(series).append("\n");
+        sb.append("User: ").append(user != null ? user.toString() : "None").append("\n");
+        return sb.toString();
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
