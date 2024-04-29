@@ -16,7 +16,6 @@ public class MainApp {
 
       UserService userService = context.getBean(UserService.class);
 
-
       System.out.println("[Creating 2 users]");
       User user1 = new User("Ivan", "Ivanov", "ivan@mail.ru");
       User user2 = new User("Boris", "Borisov", "boris@mail.ru");
@@ -30,10 +29,6 @@ public class MainApp {
       user1.setCar(car1);
       user2.setCar(car2);
       System.out.println("[Users been set to cars\n" + user1 + "\n" + user2 + "]");
-
-//      carService.add(car1);
-//      carService.add(car2);
-//      System.out.println("[Cars been added to DB]");
 
       userService.add(user1);
       userService.add(user2);
